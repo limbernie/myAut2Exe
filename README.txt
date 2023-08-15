@@ -209,11 +209,11 @@ Files
 =====
 
  myAutToExe.exe     Compiled (pCode) VB6-Exe
- data\RanRot_MT.dll      RanRot & Mersenne Twister pRandom Generator - used to decrypt scriptdata
- data\LZSS.exe           Called after to decryption to decompress the script
- data\ExtractExeIcon.exe Used to extract the MainIcon(s) from the ScriptExe 
+ lib\RanRot_MT.dll      RanRot & Mersenne Twister pRandom Generator - used to decrypt scriptdata
+ lib\LZSS.exe           Called after to decryption to decompress the script
+ lib\ExtractExeIcon.exe Used to extract the MainIcon(s) from the ScriptExe 
  Doc\               Additional document about decompiling related stuff
- data\Tidy\              is run after deobfucating to apply indent to the source code
+ lib\Tidy\              is run after deobfucating to apply indent to the source code
  samples\           Useful 'protected' example scripts; use myAut2Exe to reveal its the sources
  src_AutToExe_VB6.vbp   VB6-ProjectFile
  !SourceCode\src\             VB6 source code

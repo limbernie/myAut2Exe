@@ -12,7 +12,7 @@ Public Sub HandleIconFile(FileName As String)
            
            Log "Extracting ExeIcon/s to: " & Quote(IconFileName.FileName)
            On Error Resume Next
-           ShellEx App.Path & "\" & "data\ExtractIcon.exe", _
+           ShellEx App.Path & "\" & "lib\ExtractIcon.exe", _
                    Quote(File.FileName) & " " & Quote(IconFileName.FileName), vbNormalFocus
            If Err Then
                FrmMain.Log "ERROR: " & Err.Description

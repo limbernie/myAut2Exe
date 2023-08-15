@@ -6,11 +6,11 @@ Option Explicit
 
 
 'Mersenne Twister
-Private Declare Function MT_Init_Raw Lib "data\RanRot_MT.dll" Alias "MT_Init" (ByVal initSeed As Long) As Long
-Private Declare Function MT_GetI8 Lib "data\RanRot_MT.dll" () As Long
+Private Declare Function MT_Init_Raw Lib "lib\RanRot_MT.dll" Alias "MT_Init" (ByVal initSeed As Long) As Long
+Private Declare Function MT_GetI8 Lib "lib\RanRot_MT.dll" () As Long
 
-Private Declare Function RanRot_Init_Raw Lib "data\RanRot_MT.dll" Alias "RanRot_Init" (ByVal initSeed As Long) As Long
-Private Declare Function RanRot_GetI8 Lib "data\RanRot_MT.dll" () As Long
+Private Declare Function RanRot_Init_Raw Lib "lib\RanRot_MT.dll" Alias "RanRot_Init" (ByVal initSeed As Long) As Long
+Private Declare Function RanRot_GetI8 Lib "lib\RanRot_MT.dll" () As Long
 
 
 'Private Declare Function Uncompress Lib "LZSS.DLL" (ByVal CompressedData$, ByVal CompressedDataSize&, ByVal OutData$, ByVal OutDataSize&) As Long
@@ -551,12 +551,12 @@ Log "AlternativeSigScan for 'FILE'-signature in au3-body..."
 'The Compiled Script AutoIT File format
 '--------------------------------------
 '
-'AutoIt_Signature        size 0x14 Byte  String "£HK...AU3!"
+'AutoIt_Signature        size 0x14 Byte  String "ï¿½HK...AU3!"
 'MD5PassphraseHash       size 0x10 Byte                      [LenKey=FAC1, StrKey=C3D2 AHK only]
 'ResType                 size 0x4 Byte   eString: "FILE"     [             StrKey=16FA]
 '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Search for that !
      
-'     .FindString HexvaluesToString("FF 6D B0 CE")  'FF 6D B0 CE       ÿm°Î
+'     .FindString HexvaluesToString("FF 6D B0 CE")  'FF 6D B0 CE       ï¿½mï¿½ï¿½
       If FindLocation(DeCrypt(AU3_SubTypeStr, 5882), "FILE-(old)signature", True) = -1 Then  '16FA
                  '.FindString HexvaluesToString("6B 43 CA 52")
          
@@ -663,7 +663,7 @@ Log "Seeking back to script start position..."
        ' SubType ["AU3!"]
          .Move -4
        
-       ' AU3Signature ["£HK¾..."]
+       ' AU3Signature ["ï¿½HKï¿½..."]
          .Move -AU3SigSize
          
       Else
@@ -860,7 +860,7 @@ Public Sub Decompile()
    
    
    isAutoIT2Script = False
-   AU3Sig = HexvaluesToString(AU3Sig_HexStr) ' & "AU3!"  ' "£HK¾˜lJ©™LS.†ÖH}"
+   AU3Sig = HexvaluesToString(AU3Sig_HexStr) ' & "AU3!"  ' "ï¿½HKï¿½ï¿½lJï¿½ï¿½LS.ï¿½ï¿½H}"
    AU3SigSize = Len(AU3Sig)
 
 'log "---------------------------------------------------------"
@@ -1095,7 +1095,7 @@ Public Sub Decompile()
           ' Note: as bug or with intention startvalue is 0 so MD5PassphraseHash_ByteSum will be also always 0.
             MD5PassphraseHash_ByteSum = MD5PassphraseHash_ByteSum * MD5PassphraseHash.int8Sig
          ElseIf bIsOldScript Then
-          ' For AHK scripts use signed int8 to also compute äöü correct
+          ' For AHK scripts use signed int8 to also compute ï¿½ï¿½ï¿½ correct
             MD5PassphraseHash_ByteSum = MD5PassphraseHash_ByteSum + MD5PassphraseHash.int8Sig
          Else
           ' For new MD5 scripts use unsigned int8 to compute
@@ -1659,7 +1659,7 @@ With ScriptData
        ' Run "LZSS.exe -d *.debug *.au3" to extract the script (...and wait for its execution to finish)
          Dim LZSS_Output$, ExitCode&
          LZSS_Output = Console.ShellExConsole( _
-                  App.Path & "\" & "data\LZSS.exe", _
+                  App.Path & "\" & "lib\LZSS.exe", _
                   "-d " & Quote(.FileName) & " " & Quote(OutFileName.FileName), _
                   ExitCode)
       

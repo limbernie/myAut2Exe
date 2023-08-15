@@ -763,7 +763,7 @@ Function WH_Open() As Long
          
        ' Set Default
          Dim WH_Path As New ClsFilename
-         WH_Path = App.Path & "\data\WinHex\"
+         WH_Path = App.Path & "\lib\WinHex\"
          
        ' get path from registry
          Console2.ShellExConsole "reg", "query ""HKEY_CLASSES_ROOT\WHSFile\DefaultIcon"""
@@ -879,7 +879,7 @@ Private Sub mi_GetAutoItVersion_Click()
 '                   ' Run "LZSS.exe -d *.debug *.au3" to extract the script (...and wait for its execution to finish)
 '                     Dim LZSS_Output$, ExitCode&
 '                     LZSS_Output = Console.ShellExConsole( _
-'                              App.Path & "\" & "data\LZSS.exe", _
+'                              App.Path & "\" & "lib\LZSS.exe", _
 '                              "-d " & Quote(.FileName) & " " & Quote(OutFileName.FileName), _
 '                              ExitCode)
 '

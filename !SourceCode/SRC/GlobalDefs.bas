@@ -135,7 +135,7 @@ Public Sub RunTidy(ScriptData$, Optional skipTidy As Boolean)
       .Log ""
      
       If skipTidy Then
-         .Log "Skipping to run 'data\Tidy\Tidy.exe' on" & FileName.NameWithExt & "' to improve sourcecode readability. (Plz run it manually if you need it.)"
+         .Log "Skipping to run 'lib\Tidy\Tidy.exe' on" & FileName.NameWithExt & "' to improve sourcecode readability. (Plz run it manually if you need it.)"
       Else
          
          .Log "Running 'Tidy.exe " & FileName.NameWithExt & "' to improve sourcecode readability."
@@ -143,7 +143,7 @@ Public Sub RunTidy(ScriptData$, Optional skipTidy As Boolean)
          FrmMain.ScriptLines = Split(ScriptData, vbCrLf)
          
          Dim cmdline$, parameters$, Logfile$
-         cmdline = App.Path & "\" & "data\Tidy\Tidy.exe"
+         cmdline = App.Path & "\" & "lib\Tidy\Tidy.exe"
          parameters = """" & FileName & """" ' /KeepNVersions=1
          .Log cmdline & " " & parameters
          

@@ -1,7 +1,7 @@
 Attribute VB_Name = "modWHXAPI"
 '        WinHex API 1.1 Declarations for Visual Basic
 '
-'        Copyright © 2001-2003 Stefan Fleischmann
+'        Copyright ï¿½ 2001-2003 Stefan Fleischmann
 '        Modified by Alexander Asyabrik
 '        Requires an existing installation of WinHex 10.1
 '        or later and a professional WinHex license.
@@ -16,55 +16,55 @@ Attribute VB_Name = "modWHXAPI"
 '----------------------------------------------------------------------
 '        This declarations fully valid for VB5,VB6
 
-'        Copyright © 2002 Alexander Asyabrik
+'        Copyright ï¿½ 2002 Alexander Asyabrik
  
 
-Public Declare Function WHX_Init Lib "data\whxapi.dll" (ByVal APIVersion As Long) As Long
-Public Declare Function WHX_Done Lib "data\whxapi.dll" () As Long
+Public Declare Function WHX_Init Lib "lib\whxapi.dll" (ByVal APIVersion As Long) As Long
+Public Declare Function WHX_Done Lib "lib\whxapi.dll" () As Long
 
-Public Declare Function WHX_Open Lib "data\whxapi.dll" (ByVal lpResName As String) As Long
-Public Declare Function WHX_Create Lib "data\whxapi.dll" (ByVal lpResName As String, ByVal Count As Long) As Long
-Public Declare Function WHX_Close Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_CloseAll Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_NextObj Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_Save Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_SaveAll Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_SaveAs Lib "data\whxapi.dll" (ByVal lpNewFileName As String) As Long
-Public Declare Function WHX_OpenEx Lib "data\whxapi.dll" (ByVal lpResName As String, ByVal Param As Long) As Long
+Public Declare Function WHX_Open Lib "lib\whxapi.dll" (ByVal lpResName As String) As Long
+Public Declare Function WHX_Create Lib "lib\whxapi.dll" (ByVal lpResName As String, ByVal Count As Long) As Long
+Public Declare Function WHX_Close Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_CloseAll Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_NextObj Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_Save Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_SaveAll Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_SaveAs Lib "lib\whxapi.dll" (ByVal lpNewFileName As String) As Long
+Public Declare Function WHX_OpenEx Lib "lib\whxapi.dll" (ByVal lpResName As String, ByVal Param As Long) As Long
 
-Public Declare Function WHX_Read Lib "data\whxapi.dll" (ByRef lpBuffer As Byte, ByVal Bytes As Long) As Long
-Public Declare Function WHX_ReadString Lib "data\whxapi.dll" Alias "WHX_Read" (ByVal lpBuffer As String, ByVal Bytes As Long) As Long
+Public Declare Function WHX_Read Lib "lib\whxapi.dll" (ByRef lpBuffer As Byte, ByVal Bytes As Long) As Long
+Public Declare Function WHX_ReadString Lib "lib\whxapi.dll" Alias "WHX_Read" (ByVal lpBuffer As String, ByVal Bytes As Long) As Long
 
-Public Declare Function WHX_Write Lib "data\whxapi.dll" (ByRef lpBuffer As Byte, ByVal Bytes As Long) As Long
-Public Declare Function WHX_WriteString Lib "data\whxapi.dll" Alias "WHX_Write" (ByVal lpBuffer As String, ByVal Bytes As Long) As Long
+Public Declare Function WHX_Write Lib "lib\whxapi.dll" (ByRef lpBuffer As Byte, ByVal Bytes As Long) As Long
+Public Declare Function WHX_WriteString Lib "lib\whxapi.dll" Alias "WHX_Write" (ByVal lpBuffer As String, ByVal Bytes As Long) As Long
 
-Public Declare Function WHX_GetSize Lib "data\whxapi.dll" (ByRef Size As Currency) As Long
-Public Declare Function WHX_Goto Lib "data\whxapi.dll" (ByVal Ofs As Currency) As Long
-Public Declare Function WHX_Move Lib "data\whxapi.dll" (ByVal Ofs As Currency) As Long
-Public Declare Function WHX_CurrentPos Lib "data\whxapi.dll" (ByRef Ofs As Currency) As Long
-Public Declare Function WHX_SetBlock Lib "data\whxapi.dll" (ByVal Ofs1 As Currency, ByVal Ofs2 As Currency) As Long
+Public Declare Function WHX_GetSize Lib "lib\whxapi.dll" (ByRef Size As Currency) As Long
+Public Declare Function WHX_Goto Lib "lib\whxapi.dll" (ByVal Ofs As Currency) As Long
+Public Declare Function WHX_Move Lib "lib\whxapi.dll" (ByVal Ofs As Currency) As Long
+Public Declare Function WHX_CurrentPos Lib "lib\whxapi.dll" (ByRef Ofs As Currency) As Long
+Public Declare Function WHX_SetBlock Lib "lib\whxapi.dll" (ByVal Ofs1 As Currency, ByVal Ofs2 As Currency) As Long
 '
-Public Declare Function WHX_Copy Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_CopyIntoNewFile Lib "data\whxapi.dll" (ByVal lpNewFileName As String) As Long
-Public Declare Function WHX_Cut Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_Remove Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_Paste Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_WriteClipboard Lib "data\whxapi.dll" () As Long
+Public Declare Function WHX_Copy Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_CopyIntoNewFile Lib "lib\whxapi.dll" (ByVal lpNewFileName As String) As Long
+Public Declare Function WHX_Cut Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_Remove Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_Paste Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_WriteClipboard Lib "lib\whxapi.dll" () As Long
 
-Public Declare Function WHX_Find Lib "data\whxapi.dll" (ByVal Data As String, ByVal lpOptions As String) As Long
-Public Declare Function WHX_Replace Lib "data\whxapi.dll" (ByVal Data1 As String, ByVal Data2 As String, ByVal lpOptions As String) As Long
-Public Declare Function WHX_WasFound Lib "data\whxapi.dll" () As Long
-Public Declare Function WHX_WasFoundEx Lib "data\whxapi.dll" () As Long
+Public Declare Function WHX_Find Lib "lib\whxapi.dll" (ByVal Data As String, ByVal lpOptions As String) As Long
+Public Declare Function WHX_Replace Lib "lib\whxapi.dll" (ByVal Data1 As String, ByVal Data2 As String, ByVal lpOptions As String) As Long
+Public Declare Function WHX_WasFound Lib "lib\whxapi.dll" () As Long
+Public Declare Function WHX_WasFoundEx Lib "lib\whxapi.dll" () As Long
 
-Public Declare Function WHX_Convert Lib "data\whxapi.dll" (ByVal Format1 As String, ByVal Format2 As String) As Long
-Public Declare Function WHX_Encrypt Lib "data\whxapi.dll" (ByVal Key As String, ByVal Algorithm As Long) As Long
-Public Declare Function WHX_Decrypt Lib "data\whxapi.dll" (ByVal Key As String, ByVal Algorithm As Long) As Long
+Public Declare Function WHX_Convert Lib "lib\whxapi.dll" (ByVal Format1 As String, ByVal Format2 As String) As Long
+Public Declare Function WHX_Encrypt Lib "lib\whxapi.dll" (ByVal Key As String, ByVal Algorithm As Long) As Long
+Public Declare Function WHX_Decrypt Lib "lib\whxapi.dll" (ByVal Key As String, ByVal Algorithm As Long) As Long
 
-Public Declare Function WHX_GetCurObjName Lib "data\whxapi.dll" (ByVal ObjName As String) As Long
-Public Declare Function WHX_SetFeedbackLevel Lib "data\whxapi.dll" (ByVal Level As Long) As Long
-Public Declare Function WHX_GetLastError Lib "data\whxapi.dll" (ByVal MsgBuffer As String) As Long
-Public Declare Function WHX_SetLastError Lib "data\whxapi.dll" (ByVal MsgBuffer As String) As Long
-Public Declare Function WHX_GetStatus Lib "data\whxapi.dll" (ByVal lpInstPath As String, ByRef lpWHXVersion As Long, ByRef lpWHXSubVersion As Long, ByRef lpReserved As Long) As Long
+Public Declare Function WHX_GetCurObjName Lib "lib\whxapi.dll" (ByVal ObjName As String) As Long
+Public Declare Function WHX_SetFeedbackLevel Lib "lib\whxapi.dll" (ByVal Level As Long) As Long
+Public Declare Function WHX_GetLastError Lib "lib\whxapi.dll" (ByVal MsgBuffer As String) As Long
+Public Declare Function WHX_SetLastError Lib "lib\whxapi.dll" (ByVal MsgBuffer As String) As Long
+Public Declare Function WHX_GetStatus Lib "lib\whxapi.dll" (ByVal lpInstPath As String, ByRef lpWHXVersion As Long, ByRef lpWHXSubVersion As Long, ByRef lpReserved As Long) As Long
 
 
 '=====================================

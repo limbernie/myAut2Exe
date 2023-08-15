@@ -873,7 +873,7 @@ Private Sub WarnIfUntestedObfuType()
          If IsTidyedDeTokeniserOutput = False Then
             Log "Warning - using a detokenise au3-file that was not tidyed!"
             Log "I didn't tested this with that Obfuscation type. If problems occure "
-            Log "please run data\Tidy\Tidy.exe manually on this *.au3 and then drag it into myAutToExe."
+            Log "please run lib\Tidy\Tidy.exe manually on this *.au3 and then drag it into myAutToExe."
          End If
 
 End Sub
